@@ -9,5 +9,6 @@
 	<hr/>
 	<p>Using getProperty with jsp tag (Commit 1)</p>
 	<h4><jsp:getProperty property="hello" name="greeting"/></h4>
+	<p>Commit #2 to try out CI trigger ... </p>
 </body>
 </html>
