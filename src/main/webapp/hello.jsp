@@ -12,5 +12,7 @@
 	<p>Commit #2 to try out CI trigger ... </p>
 	<hr/>
 	<p>Commit #3 to try out CI trigger ... </p>
+	<hr/>
+	<p>Commit #4 to try out CI trigger ... </p>
 </body>
 </html>
