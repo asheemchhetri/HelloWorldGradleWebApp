@@ -16,5 +16,7 @@
 	<p>Commit #4 to try out CI trigger ... </p>
 	<hr/>
 	<p>Commit #5 to try out CI trigger ... </p>
+	<hr/>
+	<p>Commit #6 to try out CI trigger on any commit and JDK 11 for gradlew ... </p>
 </body>
 </html>
