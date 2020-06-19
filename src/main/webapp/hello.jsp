@@ -22,5 +22,7 @@
 	<p>Commit #7 to try out CI trigger on any commit and JDK 11 for gradlew ... </p>
 	<hr/>
 	<p>Commit #8 to try out CI trigger and "STAGING" slots </p>
+	<hr/>
+	<p>Commit #8 to try out CI trigger and "STAGING" slots </p>
 </body>
 </html>
