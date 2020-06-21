@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.math3.random.ISAACRandom;
+
+import jdk.jfr.consumer.RecordedStackTrace;
+
 @WebServlet("/FirstSql")
 
 public class postgress_test extends HttpServlet{
@@ -50,9 +54,12 @@ public class postgress_test extends HttpServlet{
 			throws ServletException, IOException {
 		
 		List<Map> list = new ArrayList<Map>();
+		Map map = new HashMap();
 		
 		//Fetch the input parameter from user.jsp
 		String first_name_from_request = request.getParameter("f_name");
+		// Capitalize the first character
+		first_name_from_request = first_name_from_request.substring(0, 1).toUpperCase() + first_name_from_request.substring(1);
 		System.out.println(first_name_from_request);
 		
 		String query = "SELECT account.first_name, account.last_name, account.email FROM account WHERE account.first_name = '" + first_name_from_request + "'";
@@ -60,12 +67,10 @@ public class postgress_test extends HttpServlet{
 		try {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
-//				int id = rs.getInt("user_id");
 				String first_name = rs.getString("first_name");
 				String last_name = rs.getString("last_name");
 				String email = rs.getString("email");
 
-				Map map = new HashMap();
 				map.put("first_name", first_name);
 				map.put("last_name", last_name);
 				map.put("email", email);
@@ -78,13 +83,19 @@ public class postgress_test extends HttpServlet{
 					System.out.println(m);
 				}
 			}
+
+			if (map.size() <= 0) {
+				request.setAttribute("user_not_found", first_name_from_request + " is not present in our database.");// Put list collection data into request for sharing
+				request.getRequestDispatcher("/hello.jsp").forward(request, response);
+				return;
+			}
 			rs.close();
-			stmt.close();
+//			stmt.close();
 		}
 
 		catch (Exception e) {
 			System.out.println(query);
-			System.out.println("Exception in DataConnection get ResultSet");
+			System.out.println("Exception in DataConnection get ResultSet.");
 			e.printStackTrace();
 		}
 

@@ -5,9 +5,18 @@
 <head>
 	<title>HelloWorld</title>
 	<style>
-		th, tr, td, table {
-			border: 1px solid red;
+		table, th, td {
+		  border: 1px solid black;
+		  margin: 0 auto;
 		}
+		.error{
+			color: red;
+			text-align: center;
+			margin: 0 auto;
+			padding-bottom: 30px;
+			font-family: "Lucida Console", Courier, monospace;
+		}
+		
 	</style>
 </head>
 <body>
@@ -32,20 +41,26 @@
 	<hr/>
 	<p>Commit #9 to try out CI trigger and "STAGING" slots </p>
 	<hr />
-	<table>
-		<tr>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>
-		</tr>
-
-		<c:forEach items="${key_list}" var="usr" varStatus="idx">
+	<div class="error">
+		<c:out value="${user_not_found}"/>
+	</div>
+	
+	<div class="result">
+		<table>
 			<tr>
-				<td>${usr.first_name}</td>
-				<td>${usr.last_name}</td>
-				<td>${usr.email}</td>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
 			</tr>
-		</c:forEach>
-	</table>
+	
+			<c:forEach items="${key_list}" var="usr" varStatus="idx">
+				<tr>
+					<td>${usr.first_name}</td>
+					<td>${usr.last_name}</td>
+					<td>${usr.email}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
