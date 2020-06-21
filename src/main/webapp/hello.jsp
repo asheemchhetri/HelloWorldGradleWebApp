@@ -23,6 +23,6 @@
 	<hr/>
 	<p>Commit #8 to try out CI trigger and "STAGING" slots </p>
 	<hr/>
-	<p>Commit #8 to try out CI trigger and "STAGING" slots </p>
+	<p>Commit #9 to try out CI trigger and "STAGING" slots </p>
 </body>
 </html>
