@@ -30,7 +30,14 @@ public class postgress_test extends HttpServlet{
 		try {
 
 			Class.forName("org.postgresql.Driver");
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/user", "postgres", "SET56?ra");
+			String azure_url = "jdbc:postgresql://asheem-postgres-test.postgres.database.azure.com:5432/user";
+			String azure_username = "postgres@asheem-postgres-test";
+			String azure_password = "SET56?ra";
+			
+			String local_url = "jdbc:postgresql://localhost:5432/user";
+			String local_username = "postgres";
+			String local_password = "SET56?ra";
+			conn = DriverManager.getConnection(azure_url, azure_username, azure_password);
 			System.out.println(conn);
 			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
