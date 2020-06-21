@@ -1,7 +1,14 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>HelloWorld</title>
+	<style>
+		th, tr, td, table {
+			border: 1px solid red;
+		}
+	</style>
 </head>
 <body>
 	<jsp:useBean id="greeting" class="HelloWorldGradleWebApp.Greeting"/>
@@ -24,5 +31,21 @@
 	<p>Commit #8 to try out CI trigger and "STAGING" slots </p>
 	<hr/>
 	<p>Commit #9 to try out CI trigger and "STAGING" slots </p>
+	<hr />
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</tr>
+
+		<c:forEach items="${key_list}" var="usr" varStatus="idx">
+			<tr>
+				<td>${usr.first_name}</td>
+				<td>${usr.last_name}</td>
+				<td>${usr.email}</td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>
