@@ -16,8 +16,8 @@
 			padding-bottom: 30px;
 			font-family: "Lucida Console", Courier, monospace;
 		}
-		
 	</style>
+		
 </head>
 <body>
 	<jsp:useBean id="greeting" class="HelloWorldGradleWebApp.Greeting"/>
